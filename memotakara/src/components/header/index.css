@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 
-.header-container {
+.header_container {
   background-color: #074979;
   display: flex;
   gap: 20px;
@@ -17,7 +17,7 @@ body {
     padding: 0 20px;
   }
 }
-.header-logo {
+.header_logo {
   display: flex;
   gap: 15px;
   font-size: 35px;
@@ -37,13 +37,13 @@ body {
   object-position: center;
   width: 55px;
 }
-.header-name {
+.header_name {
   font-family: Baloo Da 2, sans-serif;
   flex-grow: 1;
   flex-basis: auto;
   margin: auto 0;
 }
-.header-tab {
+.header_tab {
   display: flex;
   gap: 20px;
   font-size: 20px;
@@ -54,7 +54,7 @@ body {
   flex: 1;
   margin: auto 0;
 }
-.header-register {
+.header_sign_up {
   font-family: Inter, sans-serif;
   font-weight: 400;
   background: none;
@@ -65,7 +65,7 @@ body {
   margin-right: 40px;
   font-size: 16px;
 }
-.header-login {
+.header_login {
   font-size: 16px;
   font-family: Inter, sans-serif;
   font-weight: 700;
@@ -76,7 +76,7 @@ body {
   cursor: pointer;
 }
 
-.header-register:hover,
-.header-login:hover {
+.header_sign_up:hover,
+.header_login:hover {
   opacity: 0.8;
 }

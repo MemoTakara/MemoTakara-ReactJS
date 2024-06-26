@@ -1,11 +1,11 @@
 import "./index.css";
 
-function Register() {
+function Login() {
   return (
     <div>
-      <h1>Hello</h1>
+      <h1>Login</h1>
     </div>
   );
 }
 
-export default Register;
+export default Login;
