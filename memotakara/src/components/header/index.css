@@ -4,19 +4,24 @@ body {
   padding: 0;
 }
 
+.header_link {
+  text-decoration: none;
+}
+
 .header_container {
-  background-color: #074979;
+  background-color: var(--color-white-text);
   display: flex;
   gap: 20px;
-  color: #fff;
+  color: var(--color-white-text);
   padding: 13px 34px;
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .div {
     flex-wrap: wrap;
     padding: 0 20px;
   }
-}
+} */
+
 .header_logo {
   display: flex;
   gap: 15px;
@@ -26,23 +31,27 @@ body {
   flex: 1;
   cursor: pointer;
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .div-2 {
     white-space: initial;
   }
-}
+} */
+
 .img {
   aspect-ratio: 1;
   object-fit: auto;
   object-position: center;
-  width: 55px;
+  width: 45px;
+  border-radius: 50%;
 }
+
 .header_name {
-  font-family: Baloo Da 2, sans-serif;
+  font-family: var(--logo-font);
   flex-grow: 1;
   flex-basis: auto;
   margin: auto 0;
 }
+
 .header_tab {
   display: flex;
   gap: 20px;
@@ -54,6 +63,7 @@ body {
   flex: 1;
   margin: auto 0;
 }
+
 .header_sign_up {
   font-family: Inter, sans-serif;
   font-weight: 400;
@@ -65,6 +75,7 @@ body {
   margin-right: 40px;
   font-size: 16px;
 }
+
 .header_login {
   font-size: 16px;
   font-family: Inter, sans-serif;
@@ -80,3 +91,8 @@ body {
 .header_login:hover {
   opacity: 0.8;
 }
+
+/* #header_avatar {
+  background: #ffff;
+  color: #166dba;
+} */

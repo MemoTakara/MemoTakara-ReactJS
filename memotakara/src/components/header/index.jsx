@@ -1,6 +1,10 @@
+import "../../main.css";
 import "./index.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../../img/logo.png";
 import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,7 +18,7 @@ function Header(props) {
       <div class="header_container">
         <Link to="/home" className="header_link" onClick={() => setActive("")}>
           <div class="header_logo">
-            <img loading="lazy" href="../../../public/logo.png" class="img" />
+            <img loading="lazy" src={logo} alt="logo" class="img" />
             <div class="header_name">MemeTakara</div>
           </div>
         </Link>
@@ -81,16 +85,25 @@ function Header(props) {
                   Trạng thái KPI
                 </Link>
               </button>
-              <button class="header_login">
+              <button class="header_login" id="header_avatar">
                 <Link
                   className="header_link"
                   to="/setting/account"
                   onClick={() => setActive("")}
                 >
-                  <img
-                    src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
-                    alt=""
-                    style={{ width: "50px", height: "50px" }}
+                  <Avatar
+                    size="large"
+                    style={{
+                      backgroundColor: "#ffff",
+                      border: "3px solid #0000",
+                    }}
+                    icon={
+                      <UserOutlined
+                        style={{
+                          color: "#166dba",
+                        }}
+                      />
+                    }
                   />
                 </Link>
               </button>
@@ -98,7 +111,7 @@ function Header(props) {
           )}
         </div>
       </div>
-      {user && (
+      {/* {user && (
         <div className="header_mobile">
           {location.pathname === "/home" ? (
             <div className="header_mobile_logo">
@@ -119,15 +132,16 @@ function Header(props) {
           )}
           <div className="header_mobile_avatar">
             <Link className="header_link" to="/setting/account">
-              <img
-                src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
-                alt="avatar"
-                className="header_mobile_ava"
+              <Avatar
+                size="large"
+                icon={
+                  <UserOutlined alt="avatar" className="header_mobile_ava" />
+                }
               />
             </Link>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
