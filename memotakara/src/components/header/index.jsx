@@ -1,147 +1,333 @@
-import "../../main.css";
 import "./index.css";
 import logo from "../../img/logo.png";
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { AutoComplete, Input, Badge, Popconfirm, Select } from "antd";
+import {
+  UserOutlined,
+  BellOutlined,
+  FireOutlined,
+  BookOutlined,
+} from "@ant-design/icons";
+
+// Search bar
+const getRandomInt = (max, min = 0) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+const searchResult = (query) =>
+  new Array(getRandomInt(5))
+    .join(".")
+    .split(".")
+    .map((_, idx) => {
+      const category = `${query}${idx}`;
+      return {
+        value: category,
+        label: (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <span>
+              Found {query} on{" "}
+              <a
+                href={`https://s.taobao.com/search?q=${query}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {category}
+              </a>
+            </span>
+            <span>{getRandomInt(200, 100)} results</span>
+          </div>
+        ),
+      };
+    });
+
+//Language
+const handleLanguage = (value) => {
+  console.log(`selected ${value}`);
+};
 
 function Header(props) {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
-  const location = useLocation();
-  const navigate = useNavigate();
+
+  //Search bar
+  const [optionsSearch, setOptionsSearch] = useState([]);
+  const handleSearch = (value) => {
+    setOptionsSearch(value ? searchResult(value) : []);
+  };
+  const onSelectSearch = (value) => {
+    console.log("onSelectSearch", value);
+  };
+
+  //Notifications
+  const [notis, setNotis] = useState([
+    {
+      id: 0,
+      visible: false,
+      icon: <FireOutlined style={{ color: "red" }} />,
+      title: "Way to go! You’re on a 50-day streak.",
+      description: "Keep up the momentum and study again.",
+      time: "2 hours ago",
+    },
+    {
+      id: 1,
+      visible: false,
+      icon: <BookOutlined style={{ color: "#166dba" }} />,
+      title: "Can you master the set Computer virus in learn mode?",
+      description: "Find out!",
+      time: "1 day ago",
+    },
+  ]);
+  const toggleNoti = (id) => {
+    setNotis(
+      notis.map((noti) =>
+        noti.id === id ? { ...noti, visible: !noti.visible } : noti
+      )
+    );
+  };
+  const [showNotifications, setShowNotifications] = useState(false);
+  const toggleNotifications = () => {
+    setShowNotifications(!showNotifications);
+  };
+
   return (
     <div className="header_max">
       <div class="header_container">
-        <Link to="/home" className="header_link" onClick={() => setActive("")}>
-          <div class="header_logo">
-            <img loading="lazy" src={logo} alt="logo" class="img" />
-            <div class="header_name">MemeTakara</div>
-          </div>
-        </Link>
-        <div class="header_tab">
-          {!user ? (
-            <>
-              <button class="header_sign_up">
+        {!user ? (
+          <>
+            <div className="header_set">
+              <Link
+                to="/"
+                className="header_link"
+                onClick={() => setActive("")}
+              >
+                <div className="header_logo">
+                  <img loading="lazy" src={logo} alt="logo" class="img" />
+                  <div class="header_name">MemoTakara</div>
+                </div>
+              </Link>
+
+              <button class="header_sets">
                 <Link
-                  className={`header_link ${
-                    active === "sign_up" ? "header_active" : ""
-                  }`}
-                  to="/sign_up"
-                  onClick={() => setActive("sign_up")}
+                  to="/"
+                  className="header_link"
+                  onClick={() => setActive("")}
                 >
-                  Sign up
+                  Home
                 </Link>
               </button>
 
-              <button class="header_login">
+              <button class="header_sets">
                 <Link
-                  className={`header_link ${
-                    active === "login" ? "header_active" : ""
-                  }`}
-                  to="/login"
-                  onClick={() => setActive("login")}
+                  to="/"
+                  className="header_link"
+                  onClick={() => setActive("")}
                 >
-                  Login
+                  About us
                 </Link>
               </button>
-            </>
-          ) : (
-            <>
-              <button class="header_login">
+            </div>
+
+            <div className="header_tab">
+              <AutoComplete
+                popupMatchSelectWidth={252}
+                style={{
+                  width: 360,
+                }}
+                options={optionsSearch}
+                onSelect={onSelectSearch}
+                onSearch={handleSearch}
+                size="medium"
+              >
+                <Input.Search
+                  size="medium"
+                  placeholder="Search standard collection"
+                  enterButton
+                />
+              </AutoComplete>
+
+              <Link
+                className={`header_link ${
+                  active === "sign_up" ? "header_start_active" : ""
+                }`}
+                to="/sign_up"
+                onClick={() => setActive("sign_up")}
+              >
+                <button className="header_start">Sign up</button>
+              </Link>
+
+              <Link
+                className={`header_link ${
+                  active === "login" ? "header_start_active" : ""
+                }`}
+                to="/login"
+                onClick={() => setActive("login")}
+              >
+                <button className="header_start">Login</button>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="header_set">
+              <Link
+                to="/home"
+                className="header_link"
+                onClick={() => setActive("")}
+              >
+                <div className="header_logo">
+                  <img loading="lazy" src={logo} alt="logo" class="img" />
+                  <div class="header_name">MemoTakara</div>
+                </div>
+              </Link>
+
+              <button class="header_sets">
                 <Link
-                  to="/activity_list"
+                  to="/activity_list" //change to homepage login
                   className={`header_link ${
                     active === "activity" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("activity")}
+                  onClick={() => setActive("activity")} //change to homepage login
                 >
-                  Hoạt động
+                  Home
                 </Link>
               </button>
 
-              <button class="header_login">
+              <button class="header_sets">
                 <Link
                   className={`header_link ${
                     active === "target" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("target")}
-                  to="/define_goal"
+                  onClick={() => setActive("target")} //change to study sets page
+                  to="/define_goal" //chage to study sets page
                 >
-                  Mục tiêu KPI
+                  Study Sets
                 </Link>
               </button>
-              <button class="header_login">
+
+              <button class="header_sets">
                 <Link
-                  to="/kpi_status"
+                  to="/kpi_status" //change to statistics page
                   className={`header_link ${
                     active === "status" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("status")}
+                  onClick={() => setActive("status")} //change to statistics page
                 >
-                  Trạng thái KPI
+                  Statistics
                 </Link>
               </button>
-              <button class="header_login" id="header_avatar">
-                <Link
-                  className="header_link"
-                  to="/setting/account"
-                  onClick={() => setActive("")}
+            </div>
+
+            <div className="header_tab">
+              <AutoComplete
+                popupMatchSelectWidth={252}
+                style={{
+                  width: 360,
+                }}
+                options={optionsSearch}
+                onSelect={onSelectSearch}
+                onSearch={handleSearch}
+                size="medium"
+              >
+                <Input.Search
+                  size="medium"
+                  placeholder="Search standard collection"
+                  enterButton
+                />
+              </AutoComplete>
+
+              <Select
+                defaultValue="English"
+                style={{
+                  width: 120,
+                }}
+                onChange={handleLanguage}
+                options={[
+                  {
+                    value: "Vietnamese",
+                    label: "Vietnamese",
+                  },
+                  {
+                    value: "English",
+                    label: "English",
+                    disabled: true,
+                  },
+                ]}
+              />
+
+              <div>
+                <div
+                  id="header_noti_container"
+                  onClick={() => toggleNotifications()}
                 >
-                  <Avatar
-                    size="large"
-                    style={{
-                      backgroundColor: "#ffff",
-                      border: "3px solid #0000",
-                    }}
-                    icon={
-                      <UserOutlined
-                        style={{
-                          color: "#166dba",
-                        }}
+                  <Badge
+                    size="small"
+                    count={notis.filter((noti) => !noti.visible).length}
+                  >
+                    <BellOutlined id="header_bell" />
+                  </Badge>
+                </div>
+                {/* {notis.map((noti) =>
+                  noti.visible ? (
+                    <div className="header_noti" key={noti.id}>
+                      <Popconfirm
+                        placement="bottomRight"
+                        icon={noti.icon}
+                        title={noti.title}
+                        description={noti.description}
+                        okText="Yes"
+                        cancelText="No"
+                        cancelButtonProps={{ style: { display: "none" } }}
+                        onConfirm={() => toggleNoti(noti.id)} // Đóng thông báo khi confirm
                       />
-                    }
-                  />
-                </Link>
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-      {/* {user && (
-        <div className="header_mobile">
-          {location.pathname === "/home" ? (
-            <div className="header_mobile_logo">
-              <Link className="header_link" to="/home">
-                <h3 className="header_mobile_name">MemoTakara</h3>
+                    </div>
+                  ) : (
+                    <div className="noti_null">Everything is up to date!</div>
+                  )
+                )} */}
+                {showNotifications && (
+                  <div className="header_notifications">
+                    {notis.map((noti) =>
+                      noti.visible ? (
+                        <div className="header_noti" key={noti.id}>
+                          <Popconfirm
+                            placement="bottomRight"
+                            icon={noti.icon}
+                            title={noti.title}
+                            description={noti.description}
+                            okText="Yes"
+                            cancelText="No"
+                            cancelButtonProps={{ style: { display: "none" } }}
+                            onConfirm={() => toggleNoti(noti.id)}
+                          />
+                          <div className="noti_time">{noti.time}</div>
+                        </div>
+                      ) : (
+                        <div className="noti_null">
+                          Everything is up to date!
+                        </div>
+                      )
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                className="header_link"
+                id="header_avatar"
+                to="/setting/account"
+                onClick={() => setActive("")}
+              >
+                <UserOutlined id="user_logo" />
+                <div className="username">{user}</div>
               </Link>
             </div>
-          ) : (
-            <>
-              <div className="header_mobile_back">
-                <FontAwesomeIcon
-                  icon={faArrowLeft}
-                  onClick={() => navigate(-1)}
-                />
-              </div>
-              <div className="header_mobile_name_page">{props.name}</div>
-            </>
-          )}
-          <div className="header_mobile_avatar">
-            <Link className="header_link" to="/setting/account">
-              <Avatar
-                size="large"
-                icon={
-                  <UserOutlined alt="avatar" className="header_mobile_ava" />
-                }
-              />
-            </Link>
-          </div>
-        </div>
-      )} */}
+          </>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,3 +1,6 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+
 :root {
   /* fonts */
   --logo-font: "Just Me Again Down Here";
@@ -5,27 +8,23 @@
   /* --logo-font: "Paytone One"; */
 
   /*Web font sizes */
+  --logo-size: 35px;
+  --header-size: 20px;
+  --header-weight-size: 560;
+  --body-size: 16px;
+
   --body-size-min: 18;
-  --body-size-max: 26;
-  --heading1-min: 22;
-  --heading1-max: 30;
-  --heading2-min: 32;
-  --heading2-max: 40;
 
   --body-size: var(--body-size-min);
   --small-body-size: 12px;
-  --heading1: var(--heading1-min);
-  --heading2: var(--heading2-min);
   --big: 50px;
   --small-size: 14px;
 
-  /* Mobile font size
-    --mobile-heading1: 20px;
-    --mobile-title-size: 14px;
-    --mobile-body-size: 12px;
-    --mobile-label-size: 11px; */
-
   /* Colors */
+  --color-light-button: #166dba;
+  --color-light-button-hover: #528dc8;
+  --color-light-background: #f1f2ff;
+
   --color-mode-1-button: #2a7378;
   --color-mode-1-footer: #3aafa9;
   --color-mode-1-frame-background: #def2f1;
@@ -42,24 +41,6 @@
   --color-mode-2-background: #fffff7;
   --color-mode-2-element-background: #fff;
 
-  /* --color-mode-3-button: #1C3334;
-    --color-mode-3-footer: #1C3334;
-    --color-mode-3-frame-background: #88BDBC;
-    --color-mode-3-element2: #2B7A78;
-    --color-mode-3-button-hover: #439BA1;
-    --color-mode-3-background: #254E58;
-    --color-mode-3-element-background: #376E6F;
-  
-    --color-mode-4-button: #254E58;
-    --color-mode-4-footer: #45A29E;
-    --color-mode-4-frame-background: #1F2833;
-    --color-mode-4-element2: #88BDBC;
-    --color-mode-4-button-hover: #439BA1;
-    --color-mode-4-background: #080808;
-    --color-mode-4-element-background: #88BDBC; */
-
-  --color-black-text: #000;
-  --color-white-text: #fff;
   --color-disabled: #a9a9a9;
   --color-error-button: #953333;
   --color-mode-1-shadow: rgba(42, 115, 120, 0.4);
@@ -69,12 +50,12 @@
   --text-field-height: 45px;
   --small-tick-size: 20px;
 
-  --color-button: var(--color-mode-1-button);
+  --color-button: var(--color-light-button);
   --color-footer: var(--color-mode-1-footer);
   --color-frame-background: var(--color-mode-1-frame-background);
   --color-element2: var(--color-mode-1-element2);
-  --color-button-hover: var(--color-mode-1-button-hover);
-  --color-background: var(--color-mode-1-background);
+  --color-button-hover: var(--color-light-button-hover);
+  --color-background: var(--color-light-background);
   --color-text: var(--color-black-text);
   --color-shadow: var(--color-mode-1-shadow);
   --color-header-dark: var(--color-mode-1-button);
@@ -142,16 +123,6 @@ body {
   font-size: var(--small-size);
 }
 
-.heading1 {
-  font-size: var(--heading1) !important;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.heading2 {
-  font-size: var(--heading2);
-}
-
 .link {
   font-size: var(--body-size);
   text-decoration: underline;
@@ -165,7 +136,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: var(--color-button);
-  color: var(--color-white-text);
+  color: #fff;
   border-radius: var(--button-border-radius);
   border: 2px solid var(--color-button);
   cursor: pointer;

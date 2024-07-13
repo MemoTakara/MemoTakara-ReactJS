@@ -1,5 +1,6 @@
+import "../../main.css";
 import { Route, Routes } from "react-router-dom";
-import MainLayout from "../../components/main-layout";
+import MainLayout from "../../components/main_layout";
 import SignUp from "../pages/sign_up";
 import Login from "../pages/login";
 
