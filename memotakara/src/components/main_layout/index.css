@@ -1,5 +1,3 @@
-@media screen and (max-width: 430px) {
-  .body {
-    margin-top: 80px !important;
-  }
+.body {
+  margin-top: 80px !important;
 }
