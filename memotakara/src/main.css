@@ -24,6 +24,7 @@
   --color-light-button: #166dba;
   --color-light-button-hover: #528dc8;
   --color-light-background: #f1f2ff;
+  --color-light-stroke: #5091cb;
 
   --color-mode-1-button: #2a7378;
   --color-mode-1-footer: #3aafa9;
@@ -51,6 +52,7 @@
   --small-tick-size: 20px;
 
   --color-button: var(--color-light-button);
+  --color-stroke: var(--color-light-stroke);
   --color-footer: var(--color-mode-1-footer);
   --color-frame-background: var(--color-mode-1-frame-background);
   --color-element2: var(--color-mode-1-element2);

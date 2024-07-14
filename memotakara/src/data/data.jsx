@@ -413,6 +413,52 @@ const memoData = [
       },
     ],
   },
+  {
+    //IELTS 7.5
+    id: 9,
+    title: "IELTS 7.5",
+    rate: 4.2,
+    cards: 474,
+    new: 355,
+    learning: 20,
+    re_learning: 50,
+    young: 49,
+    mature: 0,
+    due: 119,
+    writing: false,
+    tags: ["EN"],
+    front_lang: "en",
+    back_lang: "vi",
+    create_date: "2024-05-01",
+    privacy: "public",
+    create_by: "@en120",
+    flashcard: [
+      // {
+      //   item: 0,
+      //   star: false,
+      //   front: "transmission",
+      //   back: "lây nhiễm, lan truyền",
+      //   next_due: "2 days",
+      //   state: "learning",
+      // },
+      // {
+      //   item: 1,
+      //   star: false,
+      //   front: "seft-transmitting function",
+      //   back: "chức năng tự lây nhiễm",
+      //   next_due: "1 days",
+      //   state: "learning",
+      // },
+      // {
+      //   item: 2,
+      //   star: false,
+      //   front: "latent function",
+      //   back: "chức năng tiềm ẩn",
+      //   next_due: "3 days",
+      //   state: "learning",
+      // },
+    ],
+  },
 ];
 
 // memoData.forEach((item) => {
@@ -433,4 +479,23 @@ const totalData = {
   due: memoData.reduce((total, item) => total + item.due, 0),
 };
 
-export default { memoData, totalData };
+//recent Collections
+const recentCollections = memoData.filter((item) =>
+  [8, 0, 3].includes(item.id)
+);
+
+//create_by en120
+const recommendCollections = memoData.filter(
+  (item) => item.create_by === "@en120"
+);
+
+//sort by rate
+const popularCollections = memoData.slice().sort((a, b) => b.rate - a.rate);
+
+export {
+  memoData,
+  totalData,
+  recentCollections,
+  recommendCollections,
+  popularCollections,
+};
