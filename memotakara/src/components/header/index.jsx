@@ -243,7 +243,8 @@ function Header(props) {
                 defaultValue="English"
                 style={{
                   width: 120,
-                  border: "2px solid var(--color-light-button)",
+                  height: 40,
+                  border: "2.4px solid var(--color-light-button)",
                   borderRadius: "7px",
                 }}
                 onChange={handleLanguage}

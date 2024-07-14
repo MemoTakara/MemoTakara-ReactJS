@@ -84,6 +84,7 @@ function Footer() {
                 style={{
                   width: "200px",
                   fontWeight: "545",
+                  padding: "5.5px",
                   border: "2px solid var(--color-light-button)",
                 }}
                 placeholder="enter your email"

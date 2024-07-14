@@ -42,7 +42,7 @@
   cursor: pointer; /* Con trỏ chuột thay đổi khi hover */
 }
 
-.img {
+.footer_logo .img {
   aspect-ratio: 1;
   object-fit: auto;
   object-position: center;
