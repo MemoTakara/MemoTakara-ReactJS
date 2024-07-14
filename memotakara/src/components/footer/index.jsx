@@ -1,17 +1,31 @@
 import "./index.css";
 import google_icon from "../../img/google_icon.png";
-import ig_icon from "../../img/ig_icon.png";
 import logo from "../../img/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Input } from "antd";
-import { LinkedinFilled } from "@ant-design/icons";
+import { Form, message, Input } from "antd";
+import { GithubFilled, LinkedinFilled } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
+
+  //Send email
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = "updatable";
+  const sendEmail = () => {
+    messageApi.open({ key, type: "loading", content: "Loading..." });
+    setTimeout(() => {
+      messageApi.open({
+        key,
+        type: "success",
+        content: "Subscribed successfully!",
+        duration: 2,
+      });
+    }, 1000);
+  };
 
   return (
     <div class="footer_container">
@@ -41,6 +55,7 @@ function Footer() {
         <div className="footer_email">
           <div
             style={{
+              marginBottom: "15px",
               wordWrap: "break-word",
               whiteSpace: "pre-wrap",
             }}
@@ -49,26 +64,48 @@ function Footer() {
             offers about{" "}
             <span style={{ fontFamily: "var(--logo-font)" }}>MemoTakara</span>!
           </div>
-          <div className="footer_email_send">
-            <Input
-              style={{
-                width: "200px",
-                fontWeight: "545",
-                border: "2px solid var(--color-light-button)",
-              }}
-              placeholder="enter your email"
-            />
-            <button
-              style={{
-                fontSize: "16px",
-                fontWeight: "545",
-                padding: "10px 25px",
-                marginLeft: "15px",
-              }}
+
+          <Form
+            className="footer_email_send"
+            autoComplete="on"
+            onFinish={sendEmail}
+          >
+            <Form.Item
+              name="email"
+              rules={[
+                {
+                  type: "email",
+                  message: "Invalid email!",
+                  required: true,
+                },
+              ]}
             >
-              Subscribe
-            </button>
-          </div>
+              <Input
+                style={{
+                  width: "200px",
+                  fontWeight: "545",
+                  border: "2px solid var(--color-light-button)",
+                }}
+                placeholder="enter your email"
+              />
+            </Form.Item>
+
+            <Form.Item>
+              {contextHolder}
+              <button
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "545",
+                  padding: "7px 25px",
+                  marginLeft: "15px",
+                }}
+                type="submit"
+                htmlType="submit"
+              >
+                Subscribe
+              </button>
+            </Form.Item>
+          </Form>
         </div>
 
         <div className="footer_support">
@@ -88,69 +125,77 @@ function Footer() {
       </div>
 
       <div class="footer_bottom_row">
+        {/* line */}
         <div
           style={{ width: "550px", height: "1px", background: "#000" }}
         ></div>
+
         <div className="footer_copyright">
           © Copyright <span style={{ fontStyle: "italic" }}>cuhp293</span> 2024
         </div>
 
         <div className="footer_contact">
           {/* google */}
-          <div>
+          <a href="mailto:phuchong292003@gmail.com">
             <img
               src={google_icon}
               alt="Google Icon"
               style={{
-                width: "27px",
-                height: "30px",
+                width: "20px",
+                height: "24px",
                 paddingTop: "4px",
-                cursor: "pointer",
               }}
             />
-          </div>
+          </a>
 
           {/* facebook */}
-          <div>
+          <a
+            href="https://www.facebook.com/cuhp293"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon
               style={{
-                fontSize: "28px",
+                fontSize: "20px",
                 color: "#1877F2",
                 paddingLeft: "15px",
                 paddingRight: "12px",
-                cursor: "pointer",
               }}
               icon={faFacebook}
             />
-          </div>
+          </a>
 
-          {/* instagram */}
-          <div>
-            <img
-              src={ig_icon}
-              alt="Instagram Icon"
+          {/* github */}
+          <a
+            href="https://github.com/cuhp293"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubFilled
               style={{
-                width: "30px",
-                height: "34px",
-                paddingTop: "3px",
-                cursor: "pointer",
+                fontSize: "22px",
+                color: "#000",
               }}
             />
-          </div>
+          </a>
 
           {/* LinkedIn */}
-          <div>
+          <a
+            href="https://www.linkedin.com/in/%C4%91inh-th%E1%BB%8B-h%E1%BB%93ng-ph%C3%BAc-1a922a216/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedinFilled
               style={{
-                fontSize: "30px",
+                fontSize: "22px",
                 color: "#2867B2",
                 paddingLeft: "12px",
-                cursor: "pointer",
               }}
             />
-          </div>
+          </a>
         </div>
 
+        {/* line */}
         <div
           style={{ width: "550px", height: "1px", background: "#000" }}
         ></div>

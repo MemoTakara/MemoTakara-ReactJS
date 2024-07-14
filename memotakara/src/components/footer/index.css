@@ -76,6 +76,10 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+.footer_support .footer_link:hover {
+  opacity: 0.8;
+  font-style: italic;
+}
 
 .footer_bottom_row {
   display: flex;
