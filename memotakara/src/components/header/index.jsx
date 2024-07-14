@@ -174,7 +174,7 @@ function Header(props) {
           <>
             <div className="header_set">
               <Link
-                to="/home"
+                to="/dashboard"
                 className="header_link"
                 onClick={() => setActive("")}
               >
@@ -186,11 +186,11 @@ function Header(props) {
 
               <button class="header_sets">
                 <Link
-                  to="/activity_list" //change to homepage login
+                  to="/dashboard"
                   className={`header_link ${
-                    active === "activity" ? "header_active" : ""
+                    active === "dashboard" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("activity")} //change to homepage login
+                  onClick={() => setActive("dashboard")}
                 >
                   Home
                 </Link>
@@ -199,10 +199,10 @@ function Header(props) {
               <button class="header_sets">
                 <Link
                   className={`header_link ${
-                    active === "target" ? "header_active" : ""
+                    active === "study_sets" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("target")} //change to study sets page
-                  to="/define_goal" //chage to study sets page
+                  onClick={() => setActive("study_sets")}
+                  to="/study_sets"
                 >
                   Study Sets
                 </Link>
@@ -210,11 +210,11 @@ function Header(props) {
 
               <button class="header_sets">
                 <Link
-                  to="/kpi_status" //change to statistics page
+                  to="/statistics"
                   className={`header_link ${
-                    active === "status" ? "header_active" : ""
+                    active === "statistics" ? "header_active" : ""
                   }`}
-                  onClick={() => setActive("status")} //change to statistics page
+                  onClick={() => setActive("statistics")}
                 >
                   Statistics
                 </Link>
@@ -243,6 +243,8 @@ function Header(props) {
                 defaultValue="English"
                 style={{
                   width: 120,
+                  border: "2px solid var(--color-light-button)",
+                  borderRadius: "7px",
                 }}
                 onChange={handleLanguage}
                 options={[
@@ -318,7 +320,7 @@ function Header(props) {
               <Link
                 className="header_link"
                 id="header_avatar"
-                to="/setting/account"
+                to="/settings"
                 onClick={() => setActive("")}
               >
                 <UserOutlined id="user_logo" />
