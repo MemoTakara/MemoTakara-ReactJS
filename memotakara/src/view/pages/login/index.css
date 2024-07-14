@@ -1,0 +1,71 @@
+.login_container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--body-font);
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.login_header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: var(--header-weight-size);
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.login_form {
+  width: 400px;
+  max-width: 600px;
+  /* padding: 20px; */
+}
+
+.login_icon {
+  color: var(--color-light-button);
+}
+
+.login_form_forgot {
+  color: var(--color-disabled);
+  float: right;
+}
+
+.login_form_forgot:hover {
+  color: var(--color-light-button);
+}
+
+.login_btn_login {
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: var(--header-weight-size);
+  background-color: var(--color-light-button);
+  color: #fff;
+  border-radius: 35px;
+}
+
+.login_btn_login:hover {
+  background-color: var(--color-light-button-hover);
+  color: #fff;
+}
+
+.login_option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.switch-to-signup {
+  text-align: center;
+  color: #000;
+}
+
+.login_link {
+  color: var(--color-light-button);
+  text-decoration: none;
+  font-weight: var(--header-weight-size);
+  margin-left: 20px;
+}
