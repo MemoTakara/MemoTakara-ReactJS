@@ -27,6 +27,11 @@
   margin-top: 20px;
 }
 
+.landing_link {
+  text-decoration: none;
+  color: #fff;
+}
+
 #landing_btn_more {
   font-size: 18px;
   font-weight: 545;

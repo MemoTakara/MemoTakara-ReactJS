@@ -3,8 +3,11 @@ import landing_img from "../../../img/landing_img.png";
 import landing_feature1 from "../../../img/landing_feature1.png";
 import landing_feature2 from "../../../img/landing_feature2.png";
 import landing_feature3 from "../../../img/landing_feature3.png";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
+  const [active, setActive] = useState("");
   return (
     <div className="landing_container">
       <div className="landing_introduce">
@@ -38,7 +41,13 @@ function LandingPage() {
                 borderRadius: "12px",
               }}
             >
-              Get started
+              <Link
+                to="/login"
+                className="landing_link"
+                onClick={() => setActive("")}
+              >
+                Get started
+              </Link>
             </button>
 
             <button id="landing_btn_more">Learn more</button>
