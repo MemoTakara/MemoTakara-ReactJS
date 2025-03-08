@@ -1,6 +1,6 @@
-# MemoTakara
-
-MemoTakara is a project for the GR1 course, developed using **ReactJS**. The product is currently a **work in progress**, aiming to provide an effective and user-friendly learning application.
+# MemoTakara - Vocabulary Learning System
+- A ReactJS-based (FE) web for vocabulary learning, developed as part of a graduation thesis at HUST.
+- Features include spaced repetition, writing practice, and cloud data sync for seamless learning.
 
 ## Technologies Used
 
