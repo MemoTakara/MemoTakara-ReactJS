@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Tooltip } from "antd";
 
 const DashboardCard = ({ collections, setCollections }) => {
@@ -70,9 +70,10 @@ const DashboardCard = ({ collections, setCollections }) => {
             <Link //study now
               to="/study_detail"
               className="dashboard_card_link"
-              onClick={() => setActive("")}
+              onClick={() => setActive("study_sets")}
             >
               <Button
+                className="dashboard-btn-study-now"
                 style={{
                   color: "#fff",
                   padding: "14px",

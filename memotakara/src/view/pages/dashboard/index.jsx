@@ -10,6 +10,7 @@ import {
   recommendCollections,
   popularCollections,
 } from "../../../data/data.jsx";
+import BtnBlue from "../../../components/btn/btn-blue.jsx";
 import DashboardCard from "../../../components/dashboard_card/index.jsx";
 
 function Dashboard() {
@@ -121,16 +122,7 @@ function Dashboard() {
             className="dashboard_link"
             onClick={() => setActive("")}
           >
-            <Button
-              style={{
-                color: "#fff",
-                padding: "20px",
-                fontSize: "16px",
-                background: "var(--color-button)",
-              }}
-            >
-              See more
-            </Button>
+            <BtnBlue defaultText="See more" />
           </Link>
         </div>
 
@@ -167,16 +159,7 @@ function Dashboard() {
             className="dashboard_link"
             onClick={() => setActive("")}
           >
-            <Button
-              style={{
-                color: "#fff",
-                padding: "20px",
-                fontSize: "16px",
-                background: "var(--color-button)",
-              }}
-            >
-              See more
-            </Button>
+            <BtnBlue defaultText="See more" />
           </Link>
         </div>
 
@@ -202,16 +185,7 @@ function Dashboard() {
             className="dashboard_link"
             onClick={() => setActive("")}
           >
-            <Button
-              style={{
-                color: "#fff",
-                padding: "20px",
-                fontSize: "16px",
-                background: "var(--color-button)",
-              }}
-            >
-              See more
-            </Button>
+            <BtnBlue defaultText="See more" />
           </Link>
         </div>
 

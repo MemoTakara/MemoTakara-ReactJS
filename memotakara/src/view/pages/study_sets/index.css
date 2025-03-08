@@ -1,0 +1,17 @@
+.std-set-container {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  /* height: 100vh; */
+  margin: -30px 12% 30px;
+  text-align: justify;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 20px;
+}
+
+.std-set-select {
+  text-decoration: none;
+  color: #000;
+}

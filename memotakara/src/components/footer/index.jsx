@@ -7,10 +7,21 @@ import { Form, message, Input } from "antd";
 import { GithubFilled, LinkedinFilled } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import BtnBlue from "../btn/btn-blue";
 
 function Footer() {
   const [active, setActive] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
   const user = localStorage.getItem("username");
+
+  //Disable button
+  const onFieldsChange = (_, allFields) => {
+    // Kiểm tra nếu email hợp lệ thì kích hoạt nút submit
+    const isValid = allFields.every(
+      (field) => field.errors.length === 0 && field.value
+    );
+    setIsDisabled(!isValid);
+  };
 
   //Send email
   const [messageApi, contextHolder] = message.useMessage();
@@ -42,7 +53,7 @@ function Footer() {
             <Link
               to="/dashboard"
               className="footer_link"
-              onClick={() => setActive("")}
+              onClick={() => setActive("dashboard")}
             >
               <div className="footer_logo">
                 <img loading="lazy" src={logo} alt="logo" class="img" />
@@ -69,15 +80,13 @@ function Footer() {
             className="footer_email_send"
             autoComplete="on"
             onFinish={sendEmail}
+            onFieldsChange={onFieldsChange}
           >
             <Form.Item
               name="email"
               rules={[
-                {
-                  type: "email",
-                  message: "Invalid email!",
-                  required: true,
-                },
+                { type: "email", message: "Invalid email!" },
+                { required: true, message: "Email is required!" },
               ]}
             >
               <Input
@@ -86,25 +95,20 @@ function Footer() {
                   fontWeight: "545",
                   padding: "5.5px",
                   border: "2px solid var(--color-light-button)",
+                  marginRight: "15px",
                 }}
                 placeholder="enter your email"
               />
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item style={{ fontWeight: "var(--header-weight-size)" }}>
               {contextHolder}
-              <button
-                style={{
-                  fontSize: "16px",
-                  fontWeight: "545",
-                  padding: "7px 25px",
-                  marginLeft: "15px",
-                }}
+              <BtnBlue
+                defaultText="Subscribe"
                 type="submit"
                 htmlType="submit"
-              >
-                Subscribe
-              </button>
+                disabled={isDisabled}
+              />
             </Form.Item>
           </Form>
         </div>

@@ -9,6 +9,7 @@ import {
   FireOutlined,
   BookOutlined,
 } from "@ant-design/icons";
+import HeaderSet from "../btn/btn-header-set";
 
 // Search bar
 const getRandomInt = (max, min = 0) =>
@@ -110,25 +111,29 @@ function Header(props) {
                 </div>
               </Link>
 
-              <button class="header_sets">
-                <Link
-                  to="/"
-                  className="header_link"
+              <Link
+                to="/"
+                className="header_link"
+                onClick={() => setActive("")}
+              >
+                <HeaderSet
+                  defaultText="Home"
+                  isActive={active === ""}
                   onClick={() => setActive("")}
-                >
-                  Home
-                </Link>
-              </button>
+                />
+              </Link>
 
-              <button class="header_sets">
-                <Link
-                  to="/"
-                  className="header_link"
+              <Link
+                to="/"
+                className="header_link"
+                onClick={() => setActive("")}
+              >
+                <HeaderSet
+                  defaultText="About us"
+                  isActive={active === ""}
                   onClick={() => setActive("")}
-                >
-                  About us
-                </Link>
-              </button>
+                />
+              </Link>
             </div>
 
             <div className="header_tab">
@@ -176,7 +181,7 @@ function Header(props) {
               <Link
                 to="/dashboard"
                 className="header_link"
-                onClick={() => setActive("")}
+                onClick={() => setActive("dashboard")}
               >
                 <div className="header_logo">
                   <img loading="lazy" src={logo} alt="logo" class="img" />
@@ -184,41 +189,47 @@ function Header(props) {
                 </div>
               </Link>
 
-              <button class="header_sets">
-                <Link
-                  to="/dashboard"
-                  className={`header_link ${
-                    active === "dashboard" ? "header_active" : ""
-                  }`}
+              <Link
+                to="/dashboard"
+                className={`header_link ${
+                  active === "dashboard" ? "header_active" : ""
+                }`}
+                onClick={() => setActive("dashboard")}
+              >
+                <HeaderSet
+                  defaultText="Home"
+                  isActive={active === "dashboard"}
                   onClick={() => setActive("dashboard")}
-                >
-                  Home
-                </Link>
-              </button>
+                />
+              </Link>
 
-              <button class="header_sets">
-                <Link
-                  className={`header_link ${
-                    active === "study_sets" ? "header_active" : ""
-                  }`}
+              <Link
+                className={`header_link ${
+                  active === "study_sets" ? "header_active" : ""
+                }`}
+                onClick={() => setActive("study_sets")}
+                to="/study_sets"
+              >
+                <HeaderSet
+                  defaultText="Study Sets"
+                  isActive={active === "study_sets"}
                   onClick={() => setActive("study_sets")}
-                  to="/study_sets"
-                >
-                  Study Sets
-                </Link>
-              </button>
+                />
+              </Link>
 
-              <button class="header_sets">
-                <Link
-                  to="/statistics"
-                  className={`header_link ${
-                    active === "statistics" ? "header_active" : ""
-                  }`}
+              <Link
+                to="/statistics"
+                className={`header_link ${
+                  active === "statistics" ? "header_active" : ""
+                }`}
+                onClick={() => setActive("statistics")}
+              >
+                <HeaderSet
+                  defaultText="Statistics"
+                  isActive={active === "statistics"}
                   onClick={() => setActive("statistics")}
-                >
-                  Statistics
-                </Link>
-              </button>
+                />
+              </Link>
             </div>
 
             <div className="header_tab">

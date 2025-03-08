@@ -106,30 +106,6 @@ body {
 /* .header_start_active .header_start {
 } */
 
-.header_sets {
-  font-size: var(--header-size);
-  font-family: var(--body-font);
-  font-weight: var(--header-weight-size);
-  color: #000;
-  border: none;
-  border-radius: 0%;
-  background: none;
-  padding: 10px;
-  color: inherit;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s; /* Thêm hiệu ứng chuyển đổi */
-}
-
-.header_sets:hover {
-  background-color: var(--color-button-hover);
-}
-
-.header_sets:active {
-  /* background-color: var(--color-light-button-hover); */
-  border-bottom: 2px solid #000;
-  transform: scale(0.98); /* Giảm kích thước nhẹ khi nhấn để tạo hiệu ứng */
-}
-
 #header_noti_container {
   padding: 10px;
   background: #fff;
