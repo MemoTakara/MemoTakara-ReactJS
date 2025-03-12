@@ -80,7 +80,7 @@ function Dashboard() {
           </Link>
           {","}
           <br />
-          <span style={{ fontSize: "24px" }}>
+          <span style={{ fontSize: "20px" }}>
             Let's get started with your flashcards due today!
           </span>
         </div>

@@ -5,6 +5,8 @@ import landing_feature2 from "../../../img/landing_feature2.png";
 import landing_feature3 from "../../../img/landing_feature3.png";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import BtnBlue from "../../../components/btn/btn-blue.jsx";
+import BtnWhite from "../../../components/btn/btn-white.jsx";
 
 function LandingPage() {
   const [active, setActive] = useState("");
@@ -27,30 +29,22 @@ function LandingPage() {
               marginTop: "18px",
               wordWrap: "break-word",
               whiteSpace: "pre-wrap",
+              fontSize: "var(--header-size)",
             }}
           >
             Join the MemoTakara community today and explore the power of your
             mind!
           </div>
           <div className="landing_btn">
-            <button
-              style={{
-                fontSize: "18px",
-                fontWeight: "545",
-                padding: "12px 20px",
-                borderRadius: "12px",
-              }}
+            <Link
+              to="/login"
+              className="landing_link"
+              onClick={() => setActive("login")}
             >
-              <Link
-                to="/login"
-                className="landing_link"
-                onClick={() => setActive("")}
-              >
-                Get started
-              </Link>
-            </button>
+              <BtnBlue defaultText="Get started" />
+            </Link>
 
-            <button id="landing_btn_more">Learn more</button>
+            <BtnWhite id="landing_btn_more" defaultText="Learn more" />
           </div>
         </div>
 
@@ -71,10 +65,18 @@ function LandingPage() {
       <div className="landing_feature">
         <div className="landing_feature_title">Features</div>
         <div className="landing_feature_list">
-          <div className="landing_item" style={{ width: "340px" }}>
+          <div
+            className="landing_item"
+            style={{
+              width: "360px",
+              display: "grid",
+              gridTemplateRows: "auto auto 1fr",
+            }}
+          >
             <img src={landing_feature1} alt="feature 1" />
             <div
               style={{
+                marginTop: "10px",
                 fontSize: "var(--logo-size)",
                 fontWeight: "var(--header-weight-size)",
               }}
@@ -83,44 +85,60 @@ function LandingPage() {
             </div>
             <div
               style={{
-                marginTop: "18px",
+                alignSelf: "end", // Đưa phần tử này xuống đáy
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
-                color: "#767474",
+                color: "var(--color-text-disabled",
+                fontSize: "var(--body-size)",
               }}
             >
               Customize memory practices to your needs and style.
             </div>
           </div>
 
-          <div className="landing_item" style={{ width: "340px" }}>
+          <div
+            className="landing_item"
+            style={{
+              width: "320px",
+              display: "grid",
+              gridTemplateRows: "auto auto 1fr",
+            }}
+          >
             <img src={landing_feature2} alt="feature 2" />
             <div
               style={{
+                marginTop: "10px",
                 fontSize: "var(--logo-size)",
                 fontWeight: "var(--header-weight-size)",
               }}
             >
-              Boost Memory
-              <br />
-              Retention
+              Boost Memory Retention
             </div>
             <div
               style={{
-                marginTop: "18px",
+                alignSelf: "end", // Đưa phần tử này xuống đáy
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
-                color: "#767474",
+                color: "var(--color-text-disabled",
+                fontSize: "var(--body-size)",
               }}
             >
               Enhance recall with scientifically-proven methods.
             </div>
           </div>
 
-          <div className="landing_item" style={{ width: "340px" }}>
+          <div
+            className="landing_item"
+            style={{
+              width: "300px",
+              display: "grid",
+              gridTemplateRows: "auto auto 1fr",
+            }}
+          >
             <img src={landing_feature3} alt="feature 3" />
             <div
               style={{
+                marginTop: "10px",
                 fontSize: "var(--logo-size)",
                 fontWeight: "var(--header-weight-size)",
               }}
@@ -129,10 +147,11 @@ function LandingPage() {
             </div>
             <div
               style={{
-                marginTop: "18px",
+                alignSelf: "end", // Đưa phần tử này xuống đáy
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
-                color: "#767474",
+                color: "var(--color-text-disabled",
+                fontSize: "var(--body-size)",
               }}
             >
               Provide personalized memory training, 24/7 support, and

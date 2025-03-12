@@ -10,6 +10,7 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import HeaderSet from "../btn/btn-header-set";
+import BtnWhite from "../btn/btn-white";
 
 // Search bar
 const getRandomInt = (max, min = 0) =>
@@ -50,7 +51,7 @@ const handleLanguage = (value) => {
   console.log(`selected ${value}`);
 };
 
-function Header(props) {
+const Header = () => {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
 
@@ -100,11 +101,7 @@ function Header(props) {
         {!user ? (
           <>
             <div className="header_set">
-              <Link
-                to="/"
-                className="header_link"
-                onClick={() => setActive("")}
-              >
+              <Link to="/" className="header_link" onClick={() => setActive()}>
                 <div className="header_logo">
                   <img loading="lazy" src={logo} alt="logo" class="img" />
                   <div class="header_name">MemoTakara</div>
@@ -253,10 +250,8 @@ function Header(props) {
               <Select
                 defaultValue="English"
                 style={{
-                  width: 120,
+                  width: 115,
                   height: 40,
-                  border: "2.4px solid var(--color-light-button)",
-                  borderRadius: "7px",
                 }}
                 onChange={handleLanguage}
                 options={[
@@ -269,65 +264,22 @@ function Header(props) {
                     label: "English",
                     disabled: true,
                   },
+                  {
+                    value: "Japanese",
+                    label: "Japanese",
+                  },
                 ]}
               />
 
-              <div>
-                <div
-                  id="header_noti_container"
-                  onClick={() => toggleNotifications()}
-                >
-                  <Badge
-                    size="small"
-                    count={notis.filter((noti) => !noti.visible).length}
-                  >
-                    <BellOutlined id="header_bell" />
-                  </Badge>
-                </div>
-                {/* {notis.map((noti) =>
-                  noti.visible ? (
-                    <div className="header_noti" key={noti.id}>
-                      <Popconfirm
-                        placement="bottomRight"
-                        icon={noti.icon}
-                        title={noti.title}
-                        description={noti.description}
-                        okText="Yes"
-                        cancelText="No"
-                        cancelButtonProps={{ style: { display: "none" } }}
-                        onConfirm={() => toggleNoti(noti.id)} // Đóng thông báo khi confirm
-                      />
-                    </div>
-                  ) : (
-                    <div className="noti_null">Everything is up to date!</div>
-                  )
-                )} */}
-                {showNotifications && (
-                  <div className="header_notifications">
-                    {notis.map((noti) =>
-                      noti.visible ? (
-                        <div className="header_noti" key={noti.id}>
-                          <Popconfirm
-                            placement="bottomRight"
-                            icon={noti.icon}
-                            title={noti.title}
-                            description={noti.description}
-                            okText="Yes"
-                            cancelText="No"
-                            cancelButtonProps={{ style: { display: "none" } }}
-                            onConfirm={() => toggleNoti(noti.id)}
-                          />
-                          <div className="noti_time">{noti.time}</div>
-                        </div>
-                      ) : (
-                        <div className="noti_null">
-                          Everything is up to date!
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
+              <div
+                id="header_noti_container"
+                onClick={() => toggleNotifications()}
+              >
+                <BellOutlined id="header_bell" />
               </div>
+              <BtnWhite id="header_noti_container">
+                <BellOutlined id="header_bell" />
+              </BtnWhite>
 
               <Link
                 className="header_link"
@@ -344,6 +296,6 @@ function Header(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

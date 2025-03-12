@@ -5,7 +5,6 @@
   font-size: var(--body-size);
   /* height: 100vh; */
   margin: -30px 12% 30px;
-  text-align: justify;
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
@@ -32,16 +31,6 @@
   color: #fff;
 }
 
-#landing_btn_more {
-  font-size: 18px;
-  font-weight: 545;
-  padding: 12px 20px;
-  background: #fff;
-  color: #000;
-  border-radius: 12px;
-  border: 1px solid var(--color-button);
-}
-
 #landing_btn_more:hover {
   background: var(--color-disabled);
 }
@@ -61,8 +50,8 @@
   display: flex;
   background: #ede5fb;
   border-radius: 20px;
-  padding: 65px;
+  padding: 60px;
   width: 100%;
-  gap: 38px;
+  gap: 40px;
   margin-top: 50px;
 }

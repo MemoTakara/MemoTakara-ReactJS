@@ -14,20 +14,16 @@ const BtnWhite = ({ defaultText }) => {
       onMouseLeave={() => setIsHovered(false)}
       style={{
         backgroundColor: isHovered
-          ? "var(--color-light-button)" // Hover
+          ? "var(--color-light-button-hover)" // Hover
           : isClicked
-          ? "var(--color-light-button)"
-          : "var(--color-light-background)", // Đổi màu nền
-        color: isHovered
-          ? "#fff" // Hover
-          : isClicked
-          ? "#fff"
-          : "var(--color-text)", // Đổi màu chữ
+          ? "var(--color-light-background)" // Khi active
+          : "#fff", // Mặc định,
+        color: "var(--color-text)",
 
         padding: "10px",
         border: "none", // Xóa tất cả border mặc định
-        borderRadius: "0",
-        border: isClicked ? "3px solid" : "3px solid var(--color-light-button)",
+        borderRadius: "var(--button-border-radius)",
+        border: isClicked ? "1px solid" : "1px solid var(--color-light-button)",
 
         cursor: "pointer",
 

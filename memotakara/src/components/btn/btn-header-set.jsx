@@ -8,12 +8,12 @@ const HeaderSet = ({ defaultText, isActive, onClick }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        backgroundColor: "#fff",
-        color: isHovered
-          ? "var(--color-text)" // Hover
-          : isHovered
-          ? "#fff"
-          : "var(--color-text)", // Đổi màu chữ click
+        backgroundColor: isHovered
+          ? "var(--color-light-button-hover)" // Hover
+          : isActive
+          ? "var(--color-light-background)" // Khi active
+          : "#fff", // Mặc định,
+        color: "var(--color-text)",
 
         padding: "10px",
         border: "none", // Xóa tất cả border mặc định
